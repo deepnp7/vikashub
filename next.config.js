@@ -13,11 +13,7 @@ const nextConfig = {
   redirects,
   async headers() {
     const headers = []
-
-    // Prevent search engines from indexing the site if it is not live
-    // This is useful for staging environments before they are ready to go live
-    // To allow robots to crawl the site, use the `NEXT_PUBLIC_IS_LIVE` env variable
-    // You may want to also use this variable to conditionally render any tracking scripts
+    
     if (!process.env.NEXT_PUBLIC_IS_LIVE) {
       headers.push({
         headers: [
